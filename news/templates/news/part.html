@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load news_extras %}
+<head>
+    <meta charset="UTF-8">
+    <title>{{ article.title|censor }}</title>
+</head>
+<body>
+    <h1>{{ article.title|censor }}</h1>
+    <p>{{ article.pub_date|date:"d.m.Y" }}</p>
+    <div>{{ article.content|censor }}</div>
+    <a href="{% url 'index' %}">Back to News List</a>
+</body>
+</html>

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load news_extras %}
+<head>
+    <meta charset="UTF-8">
+    <title>News Portal</title>
+</head>
+<body>
+    <h1>Latest News</h1>
+    <ul>
+        {% for article in latest_articles %}
+            <li>
+                <a href="{% url 'detail' article.id %}">{{ article.title|censor }}</a> -
+                {{ article.pub_date|date:"d.m.Y" }} -
+                {{ article.content|truncatechars:20|censor }}
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<h2>Search News</h2>
+<form method="get">
+    {{ filter.form|crispy }}
+    <button type="submit">Search</button>
+</form>
+
+<ul>
+    {% for post in filter.qs %}
+        <li>{{ post.title }} - {{ post.pub_date }} - {{ post.category }}</li>
+    {% endfor %}
+</ul>
+{% endblock %}
